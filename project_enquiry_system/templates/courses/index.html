@@ -1,12 +1,33 @@
 {% extend 'layouts/master.html' %}
 
 {% block title %}
-course | LIST
+{{ title }}
 {% endblock %}
 
 {% block content %}
 <div class="container">
-     <h1>This is Course List Page</h1>
+     <a href="{% url 'course-create' %}" class="btn btn-primary btn-sm mt-3">Add New Course</a>
+     <h1>{{ body_title }}</h1>
+     <hr>
+     <table class="table table-hover">
+         <thead>
+           <tr>
+                <th>S.No</th>
+                <th>Course Name</th>
+                <th colspan="3">Action</th>
+          </tr>
+         </thead>
+         <tbody>
+             <tr>
+               <td>1</td>
+               <td>Python with django</td>
+               <td><a href="{% url 'course-show' %}" 
+                class="btn btn-primary btn-sm mt-3">Show</a></td>
+               <td><a href="{% url 'course-edit' %}"
+                 class="btn btn-primary btn-sm mt-3">Edit</a></td>
+               <td><a href="{% url 'course-delete' %}" 
+                class="btn btn-primary btn-sm mt-3">Delete</a></td>
+         </tbody> 
+     </table>
 </div>
 {% end block %}
-<div class="container"></div>
